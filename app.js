@@ -10,8 +10,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/puzzleDB')
   .then(() => console.log('Connected!'))
   .catch((err) => console.log(err.message))
 
-var puzzleRouter = require('./routes/puzzle');
-var usersRouter = require('./routes/users');
+var puzzleRouter = require('./Models/puzzle');
+var usersRouter = require('./Models/users');
 
 var app = express();
 
