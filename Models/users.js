@@ -5,24 +5,24 @@ const Schema = mongoose.Schema;   // Create a new schema
 const userSchema = new Schema({
   username: {
     type: String,
-    require: true,
+    required: true,
     unique: true
   },
 
   email: {
     type: String,
-    require: true,
+    required: true,
     unique: true
   },
 
   password: {
     type: String,
-    require: true,
+    required: true,
   },
 
   profilepicture: {
     type: String,
-    require: true,
+    required: true,
   },
 
   completedPuzzles: {
