@@ -9,7 +9,7 @@ exports.secure = async function (req, res, next) {
     console.log(req.headers.authorization);
     if (!token) throw new Error("Please enter a token")
 
-    let verify = jwt.verify(token, "QUIS")
+    let verify = jwt.verify(token, "PUZZLE")
     console.log(verify);
 
     let userVerify = await User.findById(verify.id)
@@ -56,7 +56,7 @@ exports.UserLogin = async function (req, res, next) {
     let passwordCompare = await bcrypt.compare(req.body.password, userFind.password)
     if (!passwordCompare) throw new Error("Password Invalid!")
 
-    var token = jwt.sign({ id: userFind._id }, 'QUIS');
+    var token = jwt.sign({ id: userFind._id }, 'PUZZLE');
 
     res.status(200).json({
       status: "Success",
