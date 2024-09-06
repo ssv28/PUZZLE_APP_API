@@ -25,15 +25,15 @@ const userSchema = new Schema({
     required: true,
   },
 
-  completedPuzzles: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'PUZZLE',
-  },
+  // completedPuzzles: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'PUZZLE',
+  // },
 
-  favoritePuzzles: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'PUZZLE',
-  },
+  // favoritePuzzles: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'PUZZLE',
+  // },
 
   createdAt: {
     type: Date,
@@ -44,3 +44,4 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);     // Create a model from the schema
 module.exports = User
+

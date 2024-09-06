@@ -21,7 +21,7 @@ const TrophySchema = new Schema({
 
   earnedBy: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'USER',
+    ref: 'User',
   }],
  
 });
