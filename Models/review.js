@@ -31,3 +31,9 @@ const ReviewSchema = new Schema({
 
 const REVIEW = mongoose.model('REVIEW', ReviewSchema);
 module.exports = REVIEW;
+
+
+// user: Reference to the user who posted the comment or review.
+// puzzle: Reference to the puzzle being reviewed.
+// rating: Rating out of 5.
+// commentText: The comment or review text.

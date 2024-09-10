@@ -1,15 +1,15 @@
-let Puzzle = require('../Models/puzzle')
+let REVIEW = require('../Models/review')
 const bcrypt = require('bcrypt');
 
-exports.PuzzleCreate = async function (req, res, next) {
+exports.ReviewCreate = async function (req, res, next) {
     try {
 
-        let PuzzleCreate = await Puzzle.create(req.body)
+        let ReviewCreate = await REVIEW.create(req.body)
 
         res.status(200).json({
             status: "Success",
-            message: "Puzzle Create SuccessFully!",
-            data: PuzzleCreate
+            message: "Review Create SuccessFully!",
+            data: ReviewCreate
 
         })
     } catch (error) {
@@ -24,12 +24,12 @@ exports.PuzzleCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let PuzzleData = await Puzzle.find().populate("createBy")
+        let ReviewData = await REVIEW.find().populate("user")
 
         res.status(200).json({
             status: "Success",
-            message: "Puzzle Found SuccessFully!",
-            data: PuzzleData
+            message: "Review Found SuccessFully!",
+            data: ReviewData
 
         })
 
@@ -45,12 +45,12 @@ exports.FindData = async function (req, res, next) {
 exports.FindId = async function (req, res, next) {
     try {
 
-        let puzzleFind = await Puzzle.findById(req.params.id)
+        let ReviewData = await REVIEW.findById(req.params.id)
 
         res.status(200).json({
             status: "Success",
-            message: "Puzzle Find SuccessFully!",
-            data: puzzleFind
+            message: "Review Find SuccessFully!",
+            data: ReviewData
 
         })
 
@@ -62,14 +62,14 @@ exports.FindId = async function (req, res, next) {
     }
 }
 
-exports.PuzzleDelete = async function (req, res, next) {
+exports.ReviewDelete = async function (req, res, next) {
     try {
 
-        await Puzzle.findByIdAndDelete(req.params.id)
+        await REVIEW.findByIdAndDelete(req.params.id)
 
         res.status(200).json({
             status: "Success",
-            message: "Puzzle Delete SuccessFully!",
+            message: "Review Delete SuccessFully!",
         })
 
     } catch (error) {
@@ -80,19 +80,19 @@ exports.PuzzleDelete = async function (req, res, next) {
     }
 }
 
-exports.PuzzleUpdate = async function (req, res, next) {
+exports.ReviewUpdate = async function (req, res, next) {
     try {
 
         console.log(req.body);
 
-        let PuzzleUpdate = await Puzzle.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        let ReviewUpdate = await REVIEW.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
-        console.log(PuzzleUpdate);
+        console.log(ReviewUpdate);
 
         res.status(200).json({
             status: "Success",
-            message: "Puzzle Update SuccessFully!",
-            data: PuzzleUpdate
+            message: "Review Update SuccessFully!",
+            data: ReviewUpdate
         })
 
     } catch (error) {

@@ -13,6 +13,12 @@ const PuzzleSchema = new Schema({
     enum: ['crossword', 'jigsaw', 'sudoku', 'word-search', 'others'],
   },
 
+  createBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
   difficulty: {
     type: String,
     enum: ['easy', 'medium', 'hard'],
@@ -26,6 +32,7 @@ const PuzzleSchema = new Schema({
 
   timeLimit: {
     type: Number, // Time limit in seconds (if applicable)
+    required: true,
   },
 
 });
