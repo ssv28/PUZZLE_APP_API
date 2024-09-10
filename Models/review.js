@@ -24,6 +24,7 @@ const ReviewSchema = new Schema({
         type: Number,
         min: 1,
         max: 5, // Assuming a 5-star rating system
+        required: true,
     },
 
 });

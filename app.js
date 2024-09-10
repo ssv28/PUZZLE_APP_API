@@ -12,6 +12,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/puzzleDB')
 
 var puzzleRouter = require('./routes/puzzle');
 var usersRouter = require('./routes/users');
+var reviewRouter = require('./routes/reviews');
+var trophyRouter = require('./routes/trophy');
 
 var app = express();
 
@@ -27,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/puzzle', puzzleRouter);
 app.use('/users', usersRouter);
+app.use('/reviews', reviewRouter);
+app.use('/trophy', trophyRouter);
 
 
 // catch 404 and forward to error handler
