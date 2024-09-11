@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 exports.TrophyCreate = async function (req, res, next) {
     try {
 
+        console.log(req.files); 
+        req.body.icon = req.files.map((el) => el.filename) 
+
         let TrophyCreate = await TROPHY.create(req.body)
 
         res.status(200).json({
@@ -24,7 +27,7 @@ exports.TrophyCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let TrophyData = await TROPHY.find().populate("user")
+        let TrophyData = await TROPHY.find()
 
         res.status(200).json({
             status: "Success",
@@ -83,8 +86,10 @@ exports.TrophyDelete = async function (req, res, next) {
 exports.TrophyUpdate = async function (req, res, next) {
     try {
 
+        console.log(req.files); 
+        req.body.icon = req.files.map((el) => el.filename) 
+        
         console.log(req.body);
-
         let TrophyUpdate = await TROPHY.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
         console.log(TrophyUpdate);

@@ -7,23 +7,24 @@ const TrophySchema = new Schema({
     required: true,
     trim: true,
   },
-  
+
   description: {
     type: String,
     required: true,
     trim: true,
   },
 
-  icon: {
+  icon: [{
     type: String,
+    required: true,
     trim: true, // URL or file path to the trophy icon
-  },
+  }],
 
   earnedBy: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   }],
- 
+
 });
 
 
