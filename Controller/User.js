@@ -126,6 +126,12 @@ exports.UserDelete = async function (req, res, next) {
 // Update User by ID
 exports.UserUpdate = async function (req, res, next) {
     try {
+
+        console.log(req.file);
+        if (!req.file) throw new Error('Profile picture upload failed');
+
+        req.body.profilepicture = req.file.originalname;
+
         if (req.body.password) {
             req.body.password = await bcrypt.hash(req.body.password, 10);
         }
