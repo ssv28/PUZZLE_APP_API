@@ -10,7 +10,7 @@ exports.PuzzleCreate = async function (req, res, next) {
             status: "Success",
             message: "Puzzle Create SuccessFully!",
             data: PuzzleCreate
-
+            
         })
     } catch (error) {
         res.status(400).json({
