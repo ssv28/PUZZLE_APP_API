@@ -73,7 +73,7 @@ exports.UserLogin = async function (req, res, next) {
 // Find All Users
 exports.FindData = async function (req, res, next) {
     try {
-        let userFind = await User.find();
+        let userFind = await User.find().populate("completedPuzzles").populate("favoritePuzzles");
 
         res.status(200).json({
             status: 'Success',

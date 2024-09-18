@@ -27,7 +27,7 @@ exports.TrophyCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let TrophyData = await TROPHY.find()
+        let TrophyData = await TROPHY.find().populate("earnedBy")
 
         res.status(200).json({
             status: "Success",

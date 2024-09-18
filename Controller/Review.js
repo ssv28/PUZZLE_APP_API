@@ -24,7 +24,7 @@ exports.ReviewCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let ReviewData = await REVIEW.find().populate("user")
+        let ReviewData = await REVIEW.find().populate("user").populate("puzzle")
 
         res.status(200).json({
             status: "Success",
